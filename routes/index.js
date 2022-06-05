@@ -5,6 +5,7 @@ const userRouter = require('./userRouter')
 
 router.use('/todo', todoRouter)
 router.use('/user', userRouter)
+rouser.get('/')
 
 
 module.exports = router
