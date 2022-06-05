@@ -12,7 +12,6 @@
   "license": "ISC",
   "dependencies": {
     "alert": "^5.0.10",
-    "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dialog": "^0.3.1",
     "dotenv": "^16.0.1",

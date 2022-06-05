@@ -24,9 +24,8 @@ class UserController{
             if(person === true){
                 return next(ApiError.badRequest('Пользователь с таким email уже существует'))
             }
-            const hashPassword = await bcrypt.hash(password, 5)
             const newUser = await db.query(`INSERT INTO person (id, email, password) values ($1, $2, $3) RETURNING *`, [id, email, hashPassword])
-            const token = generateJwt(id, email, hashPassword)
+            const token = generateJwt(id, email, password)
             return res.json({token })
         }catch(e){
             next(ApiError.badRequest(e.message))
