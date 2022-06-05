@@ -1,6 +1,5 @@
 const db = require('../db')
 const ApiError = require('../error/error')
-const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const SECRET_KEY = process.env.SECRET_KEY
 var dialog  = require('dialog')
