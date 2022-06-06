@@ -2,7 +2,6 @@ const db = require('../db')
 const ApiError = require('../error/error')
 const jwt = require('jsonwebtoken')
 const SECRET_KEY = process.env.SECRET_KEY
-var dialog  = require('dialog')
 
 const generateJwt = (id, email, hashPassword) =>{
     return jwt.sign(
