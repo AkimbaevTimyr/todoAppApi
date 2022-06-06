@@ -8,10 +8,7 @@ const pool = new Pool({
     port: 5432,
     ssl: {
         rejectUnauthorized : false,
-        ca   : fs.readFileSync("server-ca.pem").toString(),
-        key  : fs.readFileSync("client-key.pem").toString(),
-        cert : fs.readFileSync("client-cert.pem").toString(),
-  }
+    }
 })
 
 
