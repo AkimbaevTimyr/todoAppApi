@@ -3,9 +3,9 @@ const ApiError = require('../error/error')
 const jwt = require('jsonwebtoken')
 const SECRET_KEY = process.env.SECRET_KEY
 
-const generateJwt = (id, email, hashPassword) =>{
+const generateJwt = (id, email, password) =>{
     return jwt.sign(
-        {id, email, hashPassword},
+        {id, email, password},
         SECRET_KEY,
         {expiresIn: '1h'}
     )
@@ -22,7 +22,7 @@ class UserController{
             if(person === true){
                 return next(ApiError.badRequest('Пользователь с таким email уже существует'))
             }
-            const newUser = await db.query(`INSERT INTO person (id, email, password) values ($1, $2, $3) RETURNING *`, [id, email, hashPassword])
+            const newUser = await db.query(`INSERT INTO person (id, email, password) values ($1, $2, $3) RETURNING *`, [id, email, password])
             const token = generateJwt(id, email, password)
             return res.json({token })
         }catch(e){
